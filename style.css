@@ -1,0 +1,348 @@
+/*
+  C&C Wedding Stylesheet
+  This stylesheet defines the elegant look of the Save the Date website.
+  Colors, fonts and layouts were carefully chosen to match the requested
+  palette of gold, white and beige. Media queries ensure the site
+  remains responsive on phones, tablets and desktops.
+*/
+
+/* CSS variables for easy color management */
+:root {
+  --gold: #c8a04f;
+  --white: #ffffff;
+  --beige: #f8f5f0;
+  --text: #333333;
+}
+
+/* Reset and global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background-color: var(--beige);
+  /* Prevent horizontal scrollbars on smaller screens */
+  overflow-x: hidden;
+}
+
+/*
+ * Blurred floral background overlay for the entire page.
+ * The pseudo-element sits behind all content and uses the uploaded
+ * flower-themed image. Blur and opacity create a subtle, soft look.
+ */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/flowers_bg.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Hero section with background image */
+.hero {
+  position: relative;
+  background-image: url('assets/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+}
+
+/* Overlay to darken the background image slightly for readability */
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Content container in hero */
+.hero .content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Main heading with calligraphic font */
+.hero h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+}
+
+/* Date under the main heading (legacy) and subtitle under the names */
+.hero .date,
+.hero .subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+/* Countdown timer styling */
+.countdown {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.countdown .time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Increase opacity for better readability over the hero image */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Add a gold border to frame the timer segments */
+  border: 1px solid var(--gold);
+  /* Subtle blur for a glass effect */
+  backdrop-filter: blur(4px);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  min-width: 70px;
+}
+.countdown .time span {
+  font-size: 2rem;
+  color: var(--gold);
+}
+.countdown .time small {
+  font-size: 0.75rem;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+/* General section spacing */
+section {
+  padding: 4rem 1rem;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  /* Add horizontal padding to avoid the content touching the edges and prevent overflow */
+  padding: 0 1rem;
+}
+
+/* Introduction image */
+.gallery-intro img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.gallery-intro .text-intro {
+  margin-top: 1rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--text);
+}
+
+/*
+ * Introduction section with a boxed text on the right and the photo on the left.
+ * On mobile, elements stack vertically; on larger screens they sit side by side.
+ */
+.gallery-intro .intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+/* Wrapper for the introduction image */
+.intro-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Decorative box for the introductory text */
+.intro-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--gold);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  color: var(--text);
+  font-style: italic;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Story box styling to make the story feel like a tale */
+.story-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--gold);
+  padding: 1.5rem 1.75rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text);
+  /* Increase font size for a more readable story feel */
+  font-size: 1.3rem;
+  line-height: 1.7;
+  text-align: left;
+  white-space: pre-line;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  /* Give the story text an italic feel like reading a tale */
+  font-style: italic;
+}
+
+/* Remove default margins inside the story box */
+.story-box p {
+  margin: 0;
+  /* Ensure paragraphs inside the story box remain left-aligned even when generic story styles try to center them */
+  text-align: left !important;
+}
+
+/* Heading inside story box */
+.story-box h2 {
+  font-family: 'Great Vibes', cursive;
+  /* Make the "Povestea noastră" title larger and ensure it stays within the story box */
+  font-size: 3.5rem !important;
+  color: var(--gold);
+  text-align: center;
+  /* Reset margins so the heading sits neatly inside the box */
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Section headings styled with calligraphic font */
+.story h2,
+.location h2,
+.rsvp h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Story text formatting */
+.story p {
+  white-space: pre-line;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Map styling */
+.map-container iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* RSVP form styling */
+.rsvp form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+}
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: normal;
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  background-color: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #b6893f;
+}
+
+/* Thank you message */
+.thank-you {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  color: var(--gold);
+}
+
+/* Footer styling */
+footer {
+  background-color: #f5efe4;
+  color: var(--text);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive layout adjustments */
+@media (min-width: 768px) {
+  .gallery-intro .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    /* Allow wrapping if the combined width of elements exceeds the container width */
+    flex-wrap: wrap;
+  }
+  .gallery-intro img,
+  .gallery-intro .text-intro {
+    flex: 1;
+  }
+  .gallery-intro .text-intro {
+    text-align: left;
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+
+  /* Adjust sizing for the new introduction layout on larger screens */
+  .intro-image {
+    flex: 0 0 40%;
+  }
+  .intro-box {
+    flex: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .countdown .time span {
+    font-size: 1.5rem;
+  }
+}

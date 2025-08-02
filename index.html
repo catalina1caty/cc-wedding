@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C&C Wedding</title>
+  <!-- Google Fonts for elegant typography -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!-- Load Poppins with both normal and italic weights for story styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <!-- Site styles -->
+  <!-- Append a version query parameter to ensure the latest stylesheet is loaded and cached versions are bypassed -->
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <!-- Hero section with background image and countdown -->
+  <header class="hero">
+    <!-- Overlay helps text stand out against image -->
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Cosmin &amp; Cătălina</h1>
+      <!-- Subtitle replaces the original date text -->
+      <p class="subtitle">Povestea noastră începe în...</p>
+      <div id="countdown" class="countdown">
+        <div class="time">
+          <span id="days">0</span>
+          <small>Zile</small>
+        </div>
+        <div class="time">
+          <span id="hours">0</span>
+          <small>Ore</small>
+        </div>
+        <div class="time">
+          <span id="minutes">0</span>
+          <small>Minute</small>
+        </div>
+        <div class="time">
+          <span id="seconds">0</span>
+          <small>Secunde</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Introduction section with single image and romantic text -->
+  <section class="gallery-intro">
+    <div class="container intro-container">
+      <!-- Smaller image aligned to the left -->
+      <div class="intro-image">
+        <img src="assets/car.jpg" alt="Cosmin și Cătălina în mașină">
+      </div>
+      <!-- Boxed text aligned to the right -->
+      <div class="intro-box">
+        <p>
+          „Se spune că dragostea schimbă tot...<br>
+          Noi credem că, atunci când e adevărată, dragostea te regăsește, te adună din toate colțurile vieții și îți dă curajul să visezi mai departe.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our story section -->
+  <section class="story">
+    <div class="container">
+      <!-- Box around the story text and title to give it a storytelling feel -->
+      <div class="story-box">
+        <h2>Povestea noastră</h2>
+        <p>
+„Ne-am întâlnit într-un mod neașteptat, dar de atunci am știut că suntem pe același drum.
+
+Am crescut, am râs, am plâns și am visat împreună.
+
+Pe 27 septembrie 2025, visul nostru prinde contur în fața celor care ne-au fost aproape și ne-au însoțit pe drumul către „noi”.
+
+Vă așteptăm, cu inimile deschise, să faceți parte din această zi plină de sens, iubire și promisiuni pentru o viață întreagă.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location section with embedded map -->
+  <section class="location">
+    <div class="container">
+      <h2>Unde are loc magia?</h2>
+      <div class="map-container">
+        <!-- Simple Google Maps embed referencing the venue by name -->
+        <iframe src="https://maps.google.com/maps?q=Melody%20Gold%20Ballroom%20Mamaia&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP form section -->
+  <section class="rsvp">
+    <div class="container">
+      <h2>Confirmați participarea</h2>
+      <form id="rsvp-form">
+        <div class="form-group">
+          <label for="nume">Nume</label>
+          <input type="text" id="nume" name="nume" required>
+        </div>
+        <div class="form-group">
+          <label for="prenume">Prenume</label>
+          <input type="text" id="prenume" name="prenume" required>
+        </div>
+        <div class="form-group">
+          <label>Particip:</label>
+          <div class="radio-group">
+            <label><input type="radio" name="participare" value="Da" required> Da</label>
+            <label><input type="radio" name="participare" value="Nu"> Nu</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Vin însoțit(ă)?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="insotit" value="Da"> Da</label>
+            <label><input type="radio" name="insotit" value="Nu"> Nu</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mesaj">Mesaj (opțional)</label>
+          <textarea id="mesaj" name="mesaj" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn">Trimite</button>
+      </form>
+      <!-- Thank you message is initially hidden and shown after submission -->
+      <div id="thank-you" class="thank-you" style="display:none;">
+        💌 Mulțumim pentru confirmare!<br>Abia așteptăm să fim împreună pe 27 septembrie 2025! 🌿
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 C&amp;C Wedding. Toate drepturile rezervate.
+  </footer>
+
+  <!-- Site scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
